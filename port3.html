@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahid Afri | Mechatronics Engineer</title>
+  <meta name="description" content="Mahid Afri — Mechatronics Engineer specializing in robotics, ROS2, computer vision, automation, and embedded systems.">
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --panel: #121a23;
+      --text: #f3f6fa;
+      --muted: #a5b1bf;
+      --line: #293746;
+      --accent: #79d6ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92%); margin: auto; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #0a0d12ed;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      z-index: 5;
+    }
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-weight: 850; letter-spacing: .06em; white-space: nowrap; }
+    .logo span, h1 span { color: var(--accent); }
+    .links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      padding: 85px 0;
+    }
+    .hero-grid, .about {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .kicker {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 17px;
+    }
+    h1 {
+      font-size: clamp(42px, 6.5vw, 76px);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+      margin-bottom: 22px;
+    }
+    p { color: var(--muted); }
+    .intro { font-size: 18px; max-width: 670px; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 27px; }
+    .btn {
+      display: inline-block;
+      padding: 11px 17px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    .profile-card, .focus, .research-card, .contact {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 25px;
+    }
+    .profile-card {
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+    .blue { color: var(--accent); }
+    .green { color: #b5f2d0; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    .stat { padding: 13px; background: #0c1117; border: 1px solid var(--line); border-radius: 9px; }
+    .stat strong { display: block; font-size: 17px; }
+    .stat small { color: var(--muted); }
+
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .heading { margin-bottom: 32px; }
+    .heading h2 { font-size: clamp(30px, 4vw, 40px); letter-spacing: -.03em; }
+    .heading p { margin-top: 6px; }
+    .about p { margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+    .tag {
+      font-size: 13px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+    }
+
+    .focus-grid, .research {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .focus-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .focus h3, .research-card h3 { margin-bottom: 8px; }
+    .focus p, .research-card p { font-size: 15px; }
+
+    /* Expandable project cards */
+    .project-accordion {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--panel);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .project-accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px;
+      transition: background .2s;
+    }
+    .project-accordion summary::-webkit-details-marker { display: none; }
+    .project-accordion summary:hover { background: rgba(121,214,255,.04); }
+    .project-summary { display: flex; align-items: center; gap: 16px; }
+    .project-number { color: var(--accent); font-size: 13px; font-weight: 800; white-space: nowrap; }
+    .project-title { flex: 1; }
+    .project-title h3 { font-size: 19px; margin-bottom: 4px; }
+    .project-title p { font-size: 13px; color: var(--muted); }
+    .project-chevron { font-size: 22px; transition: transform .2s; color: var(--accent); }
+    .project-accordion[open] .project-chevron { transform: rotate(180deg); }
+    .project-content { padding: 0 22px 24px; border-top: 1px solid var(--line); }
+    .project-description { padding: 20px 0; }
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .video-item { min-width: 0; }
+    .video-item video, .video-item iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 10px;
+      background: #000;
+    }
+    .video-item video { object-fit: contain; }
+    .video-item h4 { font-size: 14px; margin-top: 9px; }
+    .video-item p { font-size: 12px; margin-top: 3px; }
+    .stack { font-size: 12px; color: #d2dbe4; margin-top: 14px; }
+    .note { font-size: 12px; margin-top: 16px; }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+    footer { padding: 28px 0; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .hero { min-height: 0; padding: 65px 0; }
+      .hero-grid, .about, .research { grid-template-columns: 1fr; }
+      .focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact { display: block; }
+      .contact .buttons { margin-top: 20px; }
+    }
+    @media (max-width: 600px) {
+      .video-gallery { grid-template-columns: 1fr; }
+      .project-accordion summary { padding: 17px; }
+      .project-content { padding: 0 17px 20px; }
+      .project-title h3 { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .focus-grid { grid-template-columns: 1fr; }
+      .project-summary { gap: 10px; }
+      .project-number { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav">
+      <a class="logo" href="#home">MAHID AFRI<span>.</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#specializations">Specializations</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">Mechatronics · Robotics · Autonomous Systems</div>
+        <h1>Engineering the future of <span>robotics.</span></h1>
+        <p class="intro">
+          I'm Mahid Afri, a Mechatronics Engineer passionate about robotics,
+          ROS2, computer vision, automation, and embedded systems. I work on
+          connecting software with real-world hardware to build autonomous,
+          responsive, and practical engineering solutions.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#projects">View My Projects</a>
+          <a class="btn" href="#about">About Me</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <span class="green">$ profile --show</span><br><br>
+        name: Mahid Afri<br>
+        <span class="blue">field: Mechatronics Engineering</span><br><br>
+        <span class="green">focus:</span> Robotics & ROS2<br>
+        <span class="green">perception:</span> Computer Vision<br>
+        <span class="green">control:</span> Embedded Systems<br>
+        <span class="green">systems:</span> Automation
+        <div class="stats">
+          <div class="stat"><strong>ROS2</strong><small>Robot software</small></div>
+          <div class="stat"><strong>Computer Vision</strong><small>Perception</small></div>
+          <div class="stat"><strong>Embedded Systems</strong><small>Hardware & control</small></div>
+          <div class="stat"><strong>Automation</strong><small>Integrated systems</small></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="heading">
+        <h2>About Me</h2>
+        <p>Connecting robotics software, electronics, and the physical world.</p>
+      </div>
+      <div class="about">
+        <div>
+          <p>
+            I'm a Mechatronics Engineer interested in designing and developing
+            robotic systems that can sense, understand, and interact with their
+            environments. My main areas of focus are robot operating systems,
+            autonomous navigation, computer vision, automation, and embedded control.
+          </p>
+          <p>
+            I approach projects from a systems perspective: integrating sensors,
+            processing data, developing control logic, and testing the complete
+            system in realistic conditions.
+          </p>
+        </div>
+        <div>
+          <div class="kicker">Technical Toolkit</div>
+          <div class="tags">
+            <span class="tag">ROS2</span><span class="tag">Nav2</span>
+            <span class="tag">SLAM</span><span class="tag">LiDAR</span>
+            <span class="tag">Computer Vision</span><span class="tag">OpenCV</span>
+            <span class="tag">Python</span><span class="tag">C/C++</span>
+            <span class="tag">Raspberry Pi</span><span class="tag">Arduino</span>
+            <span class="tag">Embedded Systems</span><span class="tag">Sensor Integration</span>
+            <span class="tag">Control Systems</span><span class="tag">Automation</span>
+            <span class="tag">Linux</span><span class="tag">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specializations">
+    <div class="container">
+      <div class="heading">
+        <h2>Specializations</h2>
+        <p>Core areas of engineering focus.</p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus"><h3>Robotics & ROS2</h3><p>Robot software, navigation, localization, mapping, and sensor integration.</p></article>
+        <article class="focus"><h3>Computer Vision</h3><p>Visual perception, image processing, object tracking, and camera-based sensing.</p></article>
+        <article class="focus"><h3>Autonomous Systems</h3><p>Combining perception, planning, and control to support autonomous behavior.</p></article>
+        <article class="focus"><h3>Embedded Systems</h3><p>Microcontrollers, hardware interfacing, and low-level control.</p></article>
+        <article class="focus"><h3>Automation</h3><p>Integrating sensors, actuators, control logic, and repeatable workflows.</p></article>
+        <article class="focus"><h3>System Integration</h3><p>Bringing hardware and software components together and testing them as one system.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS: click a project to reveal its videos -->
+  <section id="projects">
+    <div class="container">
+      <div class="heading">
+        <h2>My Projects</h2>
+        <p>Select a project to expand its video gallery and watch the demonstrations.</p>
+      </div>
+
+      <div class="project-list">
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">01</span>
+              <div class="project-title">
+                <h3>Vision-Based Object-Following Robot</h3>
+                <p>Computer Vision · Object Tracking · Mobile Robotics</p>
+              </div>
+              <span class="project-chevron">⌄</span>
+            </div>
+          </summary>
+          <div class="project-content">
+            <div class="project-description">
+              <p>A mobile robot that detects a target object using computer vision and follows its movement.</p>
+              <div class="stack">Robotics · Computer Vision · Object Tracking · Embedded Control</div>
+            </div>
+            <div class="video-gallery">
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/object-following/detection.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Object Detection</h4><p>Target detection demonstration.</p>
+              </div>
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/object-following/tracking.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Object Following</h4><p>Robot follows the moving target.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">02</span>
+              <div class="project-title">
+                <h3>Hand-Guided Robotic Arm</h3>
+                <p>Computer Vision · Hand Tracking · Pick and Place</p>
+              </div>
+              <span class="project-chevron">⌄</span>
+            </div>
+          </summary>
+          <div class="project-content">
+            <div class="project-description">
+              <p>A robotic arm that follows hand movements using computer vision and performs pick-and-place operations.</p>
+              <div class="stack">Computer Vision · Hand Tracking · Robotic Arm · Pick and Place</div>
+            </div>
+            <div class="video-gallery">
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/robotic-arm/hand-tracking.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Hand Tracking</h4><p>Hand movement detection and tracking.</p>
+              </div>
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/robotic-arm/pick-and-place.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Pick and Place</h4><p>Robotic arm manipulation demonstration.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">03</span>
+              <div class="project-title">
+                <h3>Remote-Controlled Robot with Live Video</h3>
+                <p>Embedded Systems · Teleoperation · Video Streaming</p>
+              </div>
+              <span class="project-chevron">⌄</span>
+            </div>
+          </summary>
+          <div class="project-content">
+            <div class="project-description">
+              <p>A remotely controlled mobile robot with a live video stream so an operator can control the robot while observing its surroundings.</p>
+              <div class="stack">Embedded Systems · Remote Control · Camera Streaming · Robotics</div>
+            </div>
+            <div class="video-gallery">
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/remote-robot/control-demo.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Remote Control</h4><p>Robot movement controlled remotely.</p>
+              </div>
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/remote-robot/live-stream.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Real-Time Video Streaming</h4><p>Live camera feed from the robot.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">04</span>
+              <div class="project-title">
+                <h3>Autonomous Robot with 2D and 3D Mapping</h3>
+                <p>Thesis · ROS2 · SLAM · Autonomous Navigation</p>
+              </div>
+              <span class="project-chevron">⌄</span>
+            </div>
+          </summary>
+          <div class="project-content">
+            <div class="project-description">
+              <p>My thesis project: a mobile robot capable of 2D and 3D mapping and autonomous navigation, exploring mapping, localization, perception, and autonomous movement.</p>
+              <div class="stack">ROS2 · SLAM · 2D/3D Mapping · Autonomous Navigation · LiDAR</div>
+            </div>
+            <div class="video-gallery">
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/thesis/2d-mapping.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>2D Mapping</h4><p>2D environment mapping demonstration.</p>
+              </div>
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/thesis/3d-mapping.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>3D Mapping</h4><p>3D environment mapping demonstration.</p>
+              </div>
+              <div class="video-item">
+                <video controls preload="metadata" playsinline>
+                  <source src="videos/thesis/autonomous-navigation.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+                <h4>Autonomous Navigation</h4><p>Robot navigating autonomously.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+      <p class="note">The video filenames above are examples. Change each source path to match your uploaded videos exactly. For large videos, consider embedding videos hosted on YouTube instead of committing large MP4 files to GitHub.</p>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="container">
+      <div class="heading">
+        <h2>Research & Engineering Interests</h2>
+        <p>Practical engineering questions I enjoy exploring.</p>
+      </div>
+      <div class="research">
+        <article class="research-card">
+          <h3>Autonomous Robot Navigation</h3>
+          <p>Mapping, localization, path planning, obstacle avoidance, and navigation performance using ROS2, Nav2, and SLAM.</p>
+        </article>
+        <article class="research-card">
+          <h3>Robotic Perception & Embedded Control</h3>
+          <p>Connecting perception sensors, embedded controllers, and robotics software to create responsive mechatronic systems.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="heading">
+        <h2>Let's Connect</h2>
+        <p>Interested in robotics, autonomous systems, computer vision, or embedded engineering? Get in touch.</p>
+      </div>
+      <div class="contact">
+        <div>
+          <h3>Mahid Afri</h3>
+          <p>Mechatronics Engineer · Robotics & Embedded Systems</p>
+        </div>
+        <div class="buttons">
+          <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/Afry7270" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+      <p class="note">Replace the placeholder email and LinkedIn URL with your actual contact details.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 Mahid Afri · Robotics, ROS2, Computer Vision & Embedded Systems</div>
+  </footer>
+
+  <script>
+    // Keep only one project expanded at a time.
+    document.querySelectorAll(".project-accordion").forEach((project) => {
+      project.addEventListener("toggle", () => {
+        if (project.open) {
+          document.querySelectorAll(".project-accordion").forEach((otherProject) => {
+            if (otherProject !== project) otherProject.open = false;
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
