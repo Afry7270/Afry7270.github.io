@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +29,46 @@
     nav {
       position: sticky;
       top: 0;
-      background: #0a0d12ed;
+      width: 100%;
+      background: rgba(10, 13, 18, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
-      z-index: 5;
+      z-index: 100;
     }
     .nav {
-      min-height: 70px;
+      width: min(1400px, 94%);
+      min-height: 76px;
+      margin: 0 auto;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 28px;
     }
-    .logo { font-weight: 850; letter-spacing: .06em; white-space: nowrap; }
+    .logo {
+      display: inline-block;
+      flex-shrink: 0;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
     .logo span, h1 span { color: var(--accent); }
-    .links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .links a {
+      display: inline-block;
+      white-space: nowrap;
+      transition: color .2s;
+    }
     .links a:hover { color: var(--accent); }
 
     .hero {
@@ -183,7 +207,19 @@
     footer { padding: 28px 0; color: var(--muted); font-size: 13px; }
 
     @media (max-width: 760px) {
-      .links { display: none; }
+      .nav {
+        min-height: 70px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .links {
+        display: flex;
+        justify-content: center;
+        gap: 8px 14px;
+        font-size: 12px;
+      }
       .hero { min-height: 0; padding: 65px 0; }
       .hero-grid, .about, .research { grid-template-columns: 1fr; }
       .focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -205,16 +241,19 @@
 </head>
 <body>
   <nav>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#specializations">Specializations</a>
-      <a href="#projects">Projects</a>
-      <a href="#competitions">Competitions</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#internships">Internships</a>
-      <a href="#youtube">YouTube</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
+    <div class="container nav">
+      <a class="logo" href="#home">MAHID AFRI<span>.</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#specializations">Specializations</a>
+        <a href="#projects">Projects</a>
+        <a href="#competitions">Competitions</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#internships">Internships</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -474,7 +513,6 @@
     </div>
   </section>
 
-  
   <!-- INTERNATIONAL ROVER COMPETITIONS -->
   <section id="competitions">
     <div class="container">
@@ -540,7 +578,6 @@
 
               <div class="competition-gallery">
                 <figure class="competition-photo">
-                  <!-- Replace with your actual rover photo path -->
                   <img
                     src="images/IRC/image-1.jpeg"
                     alt="Mars Rover used by the team at IRC 2024"
@@ -550,7 +587,6 @@
                 </figure>
 
                 <figure class="competition-photo">
-                  <!-- Replace with your actual team photo path -->
                   <img
                     src="images/IRC/image-2.jpeg"
                     alt="Mars Rover team at IRC 2024"
@@ -560,7 +596,6 @@
                 </figure>
 
                 <figure class="competition-photo">
-                  <!-- Replace with your actual competition photo path -->
                   <img
                     src="images/IRC/image-3.jpeg"
                     alt="Rover during IRC 2024"
@@ -583,7 +618,6 @@
                   </p>
                 </div>
 
-                <!-- Replace the path with your actual certificate file -->
                 <a
                   class="btn"
                   href="images/IRC/psg.jpeg"
@@ -662,7 +696,6 @@
 
               <div class="competition-gallery">
                 <figure class="competition-photo">
-                  <!-- Replace with your actual rover photo path -->
                   <img
                     src="images/MARR/image-1.PNG"
                     alt="Mars Rover used by the team in the 2025 rally"
@@ -672,7 +705,6 @@
                 </figure>
 
                 <figure class="competition-photo">
-                  <!-- Replace with your actual team photo path -->
                   <img
                     src="images/MARR/image-2.PNG"
                     alt="Mars Rover team participating in the 2025 rally"
@@ -682,7 +714,6 @@
                 </figure>
 
                 <figure class="competition-photo">
-                  <!-- Replace with your actual competition screenshot or photo -->
                   <img
                     src="images/MARR/image-3.PNG"
                     alt="Mars Autonomous Rover Rally competition documentation"
@@ -693,11 +724,10 @@
               </div>
             </div>
 
-            
             <!-- COMPETITION WINNERS LIST -->
             <div class="competition-block">
               <h4 class="competition-block-title">Competition Winners List</h4>
-            
+
               <div class="competition-certificate">
                 <div>
                   <h4>Mars Autonomous Rover Rally 2025 — Winners List</h4>
@@ -706,7 +736,7 @@
                     and their rankings.
                   </p>
                 </div>
-            
+
                 <a
                   class="btn"
                   href="images/MARR/Winners.pdf"
@@ -731,7 +761,6 @@
                   </p>
                 </div>
 
-                <!-- Replace with your actual award certificate path -->
                 <a
                   class="btn"
                   href="images/MARR/image-4.jpeg"
@@ -886,600 +915,166 @@
       }
     }
   </style>
-  
 
-<!-- LEADERSHIP & EXTRACURRICULAR EXPERIENCE -->
-<section id="leadership">
-  <div class="container">
-    <div class="heading">
-      <h2>Leadership &amp; Extracurricular Experience</h2>
-      <p>
-        Leadership roles in autonomous robotics and student
-        extracurricular activities.
-      </p>
-    </div>
+  <!-- LEADERSHIP & EXTRACURRICULAR EXPERIENCE -->
+  <section id="leadership">
+    <div class="container">
+      <div class="heading">
+        <h2>Leadership &amp; Extracurricular Experience</h2>
+        <p>
+          Leadership roles in autonomous robotics and student
+          extracurricular activities.
+        </p>
+      </div>
 
-    <div class="leadership-list">
+      <div class="leadership-list">
 
-      <!-- LEADERSHIP 01: KUET MARS ROVER TEAM -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">01</span>
+        <!-- LEADERSHIP 01: KUET MARS ROVER TEAM -->
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">01</span>
 
-            <div class="project-title">
-              <h3>KUET Mars Rover Team</h3>
-              <p>Autonomous Co-Lead · Robotics &amp; Autonomous Systems</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              TECHNICAL TEAM LEADERSHIP
-            </div>
-
-            <h3 class="competition-subtitle">
-              Autonomous Robotics
-            </h3>
-
-            <p>
-              Served as Autonomous Co-Lead of the KUET Mars Rover Team,
-              contributing to the team's autonomous robotics work.
-            </p>
-
-            <div class="stack">
-              Autonomous Robotics · Rover Systems · Team Leadership
-            </div>
-          </div>
-
-          <div class="competition-block">
-            <h4 class="competition-block-title">
-              Leadership Certificate
-            </h4>
-
-            <div class="competition-certificate">
-              <div>
-                <h4>KUET Mars Rover Team</h4>
-                <p>Autonomous Co-Lead Certificate</p>
+              <div class="project-title">
+                <h3>KUET Mars Rover Team</h3>
+                <p>Autonomous Co-Lead · Robotics &amp; Autonomous Systems</p>
               </div>
 
-              <a
-                class="btn"
-                href="images/Durbar/image-1.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Certificate ↗
-              </a>
+              <span class="project-chevron">⌄</span>
             </div>
-          </div>
-        </div>
-      </details>
+          </summary>
 
-      <!-- LEADERSHIP 02: ENGLISH CLUB OF THE LABORATORIANS -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">02</span>
-
-            <div class="project-title">
-              <h3>English Club of the Laboratorians</h3>
-              <p>Joint Secretary · School Club</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              STUDENT LEADERSHIP
-            </div>
-
-            <h3 class="competition-subtitle">
-              English Club of the Laboratorians
-            </h3>
-
-            <p>
-              Served as Joint Secretary of the English Club of the
-              Laboratorians during my school years.
-            </p>
-
-            <div class="stack">
-              Student Leadership · English Club
-            </div>
-          </div>
-
-          <div class="competition-block">
-            <h4 class="competition-block-title">
-              Leadership Certificate
-            </h4>
-
-            <div class="competition-certificate">
-              <div>
-                <h4>English Club of the Laboratorians</h4>
-                <p>Joint Secretary Certificate</p>
+          <div class="project-content">
+            <div class="project-description">
+              <div class="competition-label">
+                TECHNICAL TEAM LEADERSHIP
               </div>
 
-              <a
-                class="btn"
-                href="images/ECL/image-1.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Certificate ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </details>
+              <h3 class="competition-subtitle">
+                Autonomous Robotics
+              </h3>
 
-    </div>
-
-    <p class="note">
-      Replace the certificate paths with the actual locations of your
-      uploaded certificate files before publishing.
-    </p>
-  </div>
-</section>
-<!-- END LEADERSHIP & EXTRACURRICULAR EXPERIENCE -->
-
-  
-<!-- INTERNSHIP EXPERIENCE -->
-<section id="internships">
-  <div class="container">
-    <div class="heading">
-      <h2>Internship Experience</h2>
-      <p>
-        Practical experience in learning and development and
-        computer vision.
-      </p>
-    </div>
-
-    <div class="internship-list">
-
-      <!-- INTERNSHIP 01: 10 MINUTE SCHOOL -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">01</span>
-
-            <div class="project-title">
-              <h3>10 Minute School</h3>
-              <p>Learning &amp; Development · School-Level Internship</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <p>
-              Completed a school-level internship in the Learning and
-              Development section at 10 Minute School, where I conducted
-              online classes in English.
-            </p>
-
-            <div class="stack">
-              Learning &amp; Development · Online Teaching · English
-            </div>
-          </div>
-
-          <div class="competition-block">
-            <h4 class="competition-block-title">Experience</h4>
-            <div class="competition-contribution">
               <p>
-                Conducted online classes in English and gained practical
-                experience in a Learning and Development environment.
+                Served as Autonomous Co-Lead of the KUET Mars Rover Team,
+                contributing to the team's autonomous robotics work.
               </p>
-            </div>
-          </div>
 
-          <div class="competition-block">
-
-            <div class="competition-certificate">
-              <div>
-                <h4>10 Minute School Certificate</h4>
+              <div class="stack">
+                Autonomous Robotics · Rover Systems · Team Leadership
               </div>
-
-              <a
-                class="btn"
-                href="images/10MS/image-1.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Certificate ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- INTERNSHIP 02: THINK LIMITED -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">02</span>
-
-            <div class="project-title">
-              <h3>Think Limited</h3>
-              <p>Computer Vision · 29 June – 4 September 2025</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              COMPUTER VISION INTERNSHIP
-            </div>
-
-            <h3 class="competition-subtitle">
-              Mosquito Detection System
-            </h3>
-
-            <p>
-              Completed a university-level internship at Think Limited,
-              working on a computer vision system designed to detect
-              mosquitoes.
-            </p>
-
-            <div class="competition-contribution">
-              <h4>My Technical Contribution</h4>
-              <p>
-                Created and trained a custom detection model using
-                4,000 mosquito photos.
-              </p>
             </div>
 
             <div class="competition-block">
               <h4 class="competition-block-title">
-                Technologies &amp; Methods
+                Leadership Certificate
               </h4>
 
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">OpenCV</span>
-                <span class="tag">Cascade Detection</span>
-                <span class="tag">Computer Vision</span>
+              <div class="competition-certificate">
+                <div>
+                  <h4>KUET Mars Rover Team</h4>
+                  <p>Autonomous Co-Lead Certificate</p>
+                </div>
+
+                <a
+                  class="btn"
+                  href="images/Durbar/image-1.jpeg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Certificate ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- LEADERSHIP 02: ENGLISH CLUB OF THE LABORATORIANS -->
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">02</span>
+
+              <div class="project-title">
+                <h3>English Club of the Laboratorians</h3>
+                <p>Joint Secretary · School Club</p>
+              </div>
+
+              <span class="project-chevron">⌄</span>
+            </div>
+          </summary>
+
+          <div class="project-content">
+            <div class="project-description">
+              <div class="competition-label">
+                STUDENT LEADERSHIP
+              </div>
+
+              <h3 class="competition-subtitle">
+                English Club of the Laboratorians
+              </h3>
+
+              <p>
+                Served as Joint Secretary of the English Club of the
+                Laboratorians during my school years.
+              </p>
+
+              <div class="stack">
+                Student Leadership · English Club
               </div>
             </div>
 
-            <div class="stack">
-              Python · OpenCV · Cascade-Based Detection · Model Training
-            </div>
-          </div>
+            <div class="competition-block">
+              <h4 class="competition-block-title">
+                Leadership Certificate
+              </h4>
 
-          <div class="competition-block">
+              <div class="competition-certificate">
+                <div>
+                  <h4>English Club of the Laboratorians</h4>
+                  <p>Joint Secretary Certificate</p>
+                </div>
 
-            <div class="competition-certificate">
-              <div>
-                <h4>Think Limited Certificate</h4>
-                <p>29 June – 4 September 2025</p>
+                <a
+                  class="btn"
+                  href="images/ECL/image-1.jpeg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Certificate ↗
+                </a>
               </div>
-
-              <a
-                class="btn"
-                href="images/Think/think.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Certificate ↗
-              </a>
             </div>
           </div>
-        </div>
-      </details>
+        </details>
 
-    </div>
-
-    <p class="note">
-      Replace the certificate paths with the actual locations of your
-      uploaded certificate files before publishing.
-    </p>
-  </div>
-</section>
-<!-- END INTERNSHIP EXPERIENCE -->
-
-
-
-<!-- YOUTUBE CHANNEL -->
-<section id="youtube">
-  <div class="container">
-    <div class="heading">
-      <h2>YouTube Channel</h2>
-      <p>
-        Sharing my learning journey through programming, robotics,
-        and practical engineering.
-      </p>
-    </div>
-
-    <div class="youtube-list">
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">01</span>
-
-            <div class="project-title">
-              <h3>My YouTube Learning Journey</h3>
-              <p>
-                Competitive Programming · Robotics · Engineering Tutorials
-              </p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              CONTENT CREATION &amp; KNOWLEDGE SHARING
-            </div>
-
-            <h3 class="competition-subtitle">
-              Learning, Building, and Sharing
-            </h3>
-
-            <p>
-              My YouTube channel is a place where I document my learning
-              journey and share technical knowledge. I am currently
-              publishing Codeforces problem-solving videos, explaining
-              programming challenges and the approaches used to solve them.
-            </p>
-
-            <div class="competition-contribution">
-              <h4>Current Focus</h4>
-              <p>
-                I have published some codeforces problem-solving
-                videos recently. I recorded them in my 2nd year of University but never really published them. My initial goal is to build a collection
-                of approximately 200 videos covering programming
-                problems and problem-solving approaches.
-              </p>
-            </div>
-
-            <div class="competition-contribution">
-              <h4>Future Vision</h4>
-              <p>
-                After completing this phase, I plan to expand the channel
-                into robotics and engineering tutorials. Topics will
-                include ROS2, autonomous navigation, SLAM, computer vision,
-                embedded systems, and hands-on robotics projects.
-              </p>
-            </div>
-
-            <div class="stack">
-              Competitive Programming · Python · Robotics · ROS2 ·
-              Computer Vision · Embedded Systems
-            </div>
-          </div>
-
-          <div class="competition-block">
-
-            <div class="competition-certificate">
-              <div>
-                <h4>My YouTube Channel</h4>
-                <p>
-                  Explore my published videos and follow my progress.
-                </p>
-              </div>
-
-              <a
-                class="btn"
-                href="https://www.youtube.com/@OneStepCloserXOXO"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit YouTube ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-<!-- END YOUTUBE CHANNEL -->
-
-<!-- RESEARCH & ENGINEERING INTERESTS -->
-<section id="research">
-  <div class="container">
-    <div class="heading">
-      <h2>Research &amp; Engineering Interests</h2>
-      <p>
-        Exploring autonomous robotics, mobile robot navigation,
-        computer vision, SLAM, and resource-efficient robotic systems.
-      </p>
-    </div>
-
-    <div class="research-list">
-
-      <!-- CONFERENCE PAPER 1 -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">01</span>
-
-            <div class="project-title">
-              <h3>A Lightweight Vision-Based Object Following Framework</h3>
-              <p>ICCIT · Conference Paper · Under Review</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              CONFERENCE RESEARCH
-            </div>
-
-            <h3 class="competition-subtitle">
-              Full Paper Title
-            </h3>
-
-            <p>
-              A Lightweight Vision-Based Object Following Framework
-              for Resource-Constrained Mobile Robots Using Color and
-              Shape Features
-            </p>
-
-            <div class="competition-contribution">
-              <h4>Submission Status</h4>
-              <p>
-                Submitted to ICCIT and currently under review.
-              </p>
-            </div>
-
-            <div class="stack">
-              Computer Vision · Object Following · Mobile Robotics ·
-              Resource-Constrained Systems
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- CONFERENCE PAPER 2 -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">02</span>
-
-            <div class="project-title">
-              <h3>Autonomous Mobile Robot Navigation Using ROS2 Nav2</h3>
-              <p>ICCIT · Conference Paper · Under Review</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              CONFERENCE RESEARCH
-            </div>
-
-            <h3 class="competition-subtitle">
-              Full Paper Title
-            </h3>
-
-            <p>
-              Implementation and Performance Analysis of Autonomous
-              Mobile Robot Navigation Using ROS2 Nav2 and LiDAR-Based SLAM
-            </p>
-
-            <div class="competition-contribution">
-              <h4>Submission Status</h4>
-              <p>
-                Submitted to ICCIT and currently under review.
-              </p>
-            </div>
-
-            <div class="stack">
-              ROS2 · Nav2 · LiDAR · SLAM · Autonomous Navigation
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- ONGOING JOURNAL RESEARCH -->
-      <details class="project-accordion">
-        <summary>
-          <div class="project-summary">
-            <span class="project-number">03</span>
-
-            <div class="project-title">
-              <h3>Development and Evaluation of a ROS2-Based Autonomous Mobile Robot</h3>
-              <p>Journal Research · In Progress</p>
-            </div>
-
-            <span class="project-chevron">⌄</span>
-          </div>
-        </summary>
-
-        <div class="project-content">
-          <div class="project-description">
-            <div class="competition-label">
-              ONGOING JOURNAL RESEARCH
-            </div>
-
-            <h3 class="competition-subtitle">
-              Working Title
-            </h3>
-
-            <p>
-              Development and Evaluation of a ROS2-Based Autonomous
-              Mobile Robot Using 2D LiDAR and 3D RGB-D SLAM
-            </p>
-
-            <div class="competition-contribution">
-              <h4>Research Overview</h4>
-              <p>
-                This ongoing journal work builds on my thesis and focuses
-                on the development and evaluation of an autonomous mobile
-                robot using ROS2, 2D LiDAR-based mapping, and 3D RGB-D SLAM.
-              </p>
-            </div>
-
-            <div class="stack">
-              ROS2 · Autonomous Mobile Robotics · 2D LiDAR ·
-              RGB-D SLAM · Mapping · Performance Evaluation
-            </div>
-          </div>
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-<!-- END RESEARCH & ENGINEERING INTERESTS -->
-
-  <section id="contact">
-    <div class="container">
-      <div class="heading">
-        <h2>Let's Connect</h2>
-        <p>Interested in robotics, autonomous systems, computer vision, or embedded engineering? Get in touch.</p>
       </div>
-      <div class="contact">
-        <div>
-          <h3>Mahid Afri</h3>
-          <p>Mechatronics Engineer · Robotics & Embedded Systems</p>
-        </div>
-        <div class="buttons">
-          <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email Me</a>
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/Afry7270" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-      <p class="note">Replace the placeholder email and LinkedIn URL with your actual contact details.</p>
+
+      <p class="note">
+        Replace the certificate paths with the actual locations of your
+        uploaded certificate files before publishing.
+      </p>
     </div>
   </section>
+  <!-- END LEADERSHIP & EXTRACURRICULAR EXPERIENCE -->
 
-  <footer>
-    <div class="container">© 2026 Mahid Afri · Robotics, ROS2, Computer Vision & Embedded Systems</div>
-  </footer>
+  <!-- INTERNSHIP EXPERIENCE -->
+  <section id="internships">
+    <div class="container">
+      <div class="heading">
+        <h2>Internship Experience</h2>
+        <p>
+          Practical experience in learning and development and
+          computer vision.
+        </p>
+      </div>
 
-  <script>
-    // Keep only one project expanded at a time.
-    document.querySelectorAll(".project-accordion").forEach((project) => {
-      project.addEventListener("toggle", () => {
-        if (project.open) {
-          document.querySelectorAll(".project-accordion").forEach((otherProject) => {
-            if (otherProject !== project) otherProject.open = false;
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="internship-list">
+
+        <!-- INTERNSHIP 01: 10 MINUTE SCHOOL -->
+        <details class="project-accordion">
+          <summary>
+            <div class="project-summary">
+              <span class="project-number">01</span>
+
+              <div class="project-title">
+                <h3>
